@@ -7,7 +7,7 @@ env = environ.Env(
     DEBUG=(bool, False),
 )
 
-# environ.Env.read_env()
+environ.Env.read_env()
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -22,8 +22,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 BASE_URL = 'http://example.com'
 
-# SITE_ID = 1
-#
+"""
+SITE_ID = 1
+"""
+
 include(
     'auth.py',
     # 'api.py',
@@ -33,7 +35,7 @@ include(
     # 'http.py',
     'i18n.py',
     'installed_apps.py',
-    # 'media.py',
+    'media.py',
     'middleware.py',
     # 'sentry.py',
     'static.py',

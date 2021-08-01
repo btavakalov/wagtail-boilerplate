@@ -1,5 +1,7 @@
 import os
-from app.settings import PROJECT_DIR, BASE_DIR
+
+from app.settings import BASE_DIR
+from app.settings import PROJECT_DIR
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

@@ -1,1 +1,1 @@
-WAGTAIL_SITE_NAME = "app"
+WAGTAIL_SITE_NAME = 'app'
