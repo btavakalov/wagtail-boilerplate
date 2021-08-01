@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  django:
+    command: tail -f
+    restart: unless-stopped
+    volumes:
+      - .:/app
+
+  postgres:
+    env_file:
+      - .env.dev
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+
+volumes:
+  postgres:
+  media:

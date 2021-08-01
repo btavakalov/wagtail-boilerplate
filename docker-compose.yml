@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  django:
+    build: .
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+#    environment:
+#      - SECRET_KEY
+#      - SENTRY_DSN
+#      - POSTGRES_PASSWORD
+    restart: always
+    volumes:
+      - media:/app/media/
+
+  postgres:
+    image: postgres:13.3
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+  media:
