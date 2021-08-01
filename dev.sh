@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#export FOO='bar'
-
 cp .env.dev .env
 
 DOCKER_COMPOSE='docker-compose -f docker-compose.yml -f docker-compose.dev.yml -p wagtail'
@@ -15,7 +13,7 @@ case $1 in
     ${DOCKER_COMPOSE} build
   ;;
   down)
-    ${DOCKER_COMPOSE} down -v
+    ${DOCKER_COMPOSE} down
   ;;
   start)
     ${DOCKER_COMPOSE} start $2
