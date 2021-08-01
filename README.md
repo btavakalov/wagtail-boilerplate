@@ -1,4 +1,4 @@
-# wagtail-boilerplate
+# Wagtail boilerplate
 
 Features:
 
@@ -12,8 +12,27 @@ Features:
 - sentry
 
 
-http://localhost:8000/django-admin/
-http://localhost:8000/admin/
+## Start development
 
-admin@example.com
-ChangeMePlease!
+```shell
+./dev.sh up
+```
+
+## Start production
+
+```shell
+docker-compose build
+docker-compose up -d
+```
+
+
+## Default admin user 
+
+Django admin: http://localhost:8000/django-admin/
+
+Wagtail admin: http://localhost:8000/admin/
+
+```
+username: admin@example.com
+password: ChangeMePlease!
+```
