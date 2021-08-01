@@ -1,4 +1,6 @@
 INSTALLED_APPS = [
+    'app',
+    'users',
     'home',
     'search',
 

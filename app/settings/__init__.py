@@ -15,14 +15,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 SECRET_KEY = env('SECRET_KEY', default='django-insecure-am8u)784_e9j5_p2$7&3l43@yy0h!jpn%nl_!qm@fv_-m*w8s-')
 
 DEBUG = env('DEBUG', cast=bool, default=False)
-CI = env('CI', cast=bool, default=False)
-
-print('\n' * 30)
-print('DEBUG >>>>>>>>>>', DEBUG)
-print('SECRET_KEY >>>>>', SECRET_KEY)
-print('PROJECT_DIR >>>>', PROJECT_DIR)
-print('BASE_DIR >>>>>>>', BASE_DIR)
-print('\n' * 30)
 
 ROOT_URLCONF = 'app.urls'
 
@@ -33,7 +25,7 @@ BASE_URL = 'http://example.com'
 # SITE_ID = 1
 #
 include(
-    # 'auth.py',
+    'auth.py',
     # 'api.py',
     'templates.py',
     'db.py',

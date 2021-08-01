@@ -26,8 +26,8 @@ ADD . /app
 WORKDIR /app
 RUN chown wagtail:wagtail /app
 
-RUN mkdir /app/media
-RUN chown wagtail:wagtail /app/media
+#RUN mkdir /app/media
+#RUN chown wagtail:wagtail /app/media
 
 USER wagtail
 
