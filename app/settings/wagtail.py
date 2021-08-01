@@ -1,0 +1,1 @@
+WAGTAIL_SITE_NAME = "app"
