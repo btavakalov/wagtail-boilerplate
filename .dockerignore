@@ -1,4 +1,5 @@
 .git
+/app/media/
 
 # Django project
 /media/
