@@ -7,6 +7,7 @@ Features:
 - custom user model
 - Django REST Framework
 - Django REST Framework JSON CamelCase
+- Wagtail API CamelCased
 - Swagger generator
 - Sentry
 
