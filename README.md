@@ -6,10 +6,9 @@ Features:
 - django-environ
 - custom user model
 - Django REST Framework
-
 - Django REST Framework JSON CamelCase
 - Swagger generator
-- sentry
+- Sentry
 
 
 ## Start development
