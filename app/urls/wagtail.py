@@ -41,9 +41,9 @@ class I18nPagesAPIViewSet(PagesAPIViewSet):
         return super().find_object(queryset, request)
 
 
-router.register_endpoint('pages', PagesAPIViewSet)
-router.register_endpoint('images', ImagesAPIViewSet)
-router.register_endpoint('documents', DocumentsAPIViewSet)
+# router.register_endpoint('pages', PagesAPIViewSet)
+# router.register_endpoint('images', ImagesAPIViewSet)
+# router.register_endpoint('documents', DocumentsAPIViewSet)
 
 urlpatterns = [
     path('', router.urls),

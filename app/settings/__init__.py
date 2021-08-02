@@ -26,7 +26,7 @@ SITE_ID = 1
 
 include(
     'auth.py',
-    # 'api.py',
+    'api.py',
     'templates.py',
     'db.py',
     'email.py',
