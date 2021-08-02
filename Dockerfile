@@ -22,18 +22,14 @@ RUN python -m pip install pip==21.2.2
 COPY requirements.txt /
 RUN pip install --no-cache-dir -Ur requirements.txt
 
-ADD . /app
-
 WORKDIR /app
-RUN chown wagtail:wagtail /app
 
-#ARG MEDIA_ROOT
-#RUN echo $MEDIA_ROOT
-#RUN mkdir $MEDIA_ROOT
-#RUN chown wagtail:wagtail $MEDIA_ROOT
-#VOLUME $MEDIA_ROOT
+COPY --chown=wagtail:wagtail . .
 
 USER wagtail
+
+ARG MEDIA_ROOT
+RUN mkdir $MEDIA_ROOT
 
 #RUN python manage.py collectstatic --noinput --clear
 

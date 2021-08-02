@@ -4,17 +4,15 @@ services:
   django:
     build:
       context: .
-#      args:
-#        - MEDIA_ROOT
+      args:
+        - MEDIA_ROOT
     depends_on:
       - postgres
     env_file:
       - .env
-#    environment:
-#      - MEDIA_ROOT
     restart: always
     volumes:
-      - media:/app/media/
+      - media:$MEDIA_ROOT
 
 volumes:
   media:
