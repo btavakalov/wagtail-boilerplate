@@ -13,7 +13,7 @@ case $1 in
     ${DOCKER_COMPOSE} build
   ;;
   down)
-    ${DOCKER_COMPOSE} down
+    ${DOCKER_COMPOSE} down $2
   ;;
   start)
     ${DOCKER_COMPOSE} start $2
