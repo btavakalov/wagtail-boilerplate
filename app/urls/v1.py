@@ -1,6 +1,8 @@
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenRefreshView
 
 from django.conf.urls import url
 from django.urls import include
@@ -21,6 +23,9 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('', include('app.urls.wagtail')),
+
+    path('token/', TokenObtainPairView.as_view(), name='token-obtain'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 
     path('users/', include('users.urls')),
 

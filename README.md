@@ -2,14 +2,19 @@
 
 Features:
 
+- Custom user model
+- JWT auth
 - django-split-settings
 - django-environ
-- custom user model
 - Django REST Framework
 - Django REST Framework JSON CamelCase
-- Wagtail API CamelCased
 - Swagger generator
 - Sentry
+
+TODO:
+
+- Minimalistic registration
+- I18n
 
 
 ## Start development

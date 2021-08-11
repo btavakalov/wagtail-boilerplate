@@ -18,6 +18,10 @@ REST_FRAMEWORK = {
         'anon-auth': '10/min',
     },
 
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+
     'DEFAULT_RENDERER_CLASSES': (
         'app.api.renderers.AppJSONRenderer',
         'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
@@ -33,3 +37,6 @@ REST_FRAMEWORK = {
         'no_underscore_before_number': True,
     },
 }
+
+if env('DEBUG'):
+    REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'].append('rest_framework.authentication.SessionAuthentication')
