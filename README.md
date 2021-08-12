@@ -12,7 +12,6 @@ Features:
 - Sentry
 
 TODO:
-
 - Minimalistic registration
 - I18n
 

@@ -1,10 +1,15 @@
-from wagtail.api.v2.router import WagtailAPIRouter
+from wagtail.api.v2.router import WagtailAPIRouter as BaseWagtailAPIRouter
 
 from django.urls import path
 
 from app.api.wagtail import DocumentsAPIViewSet
 from app.api.wagtail import ImagesAPIViewSet
 from app.api.wagtail import PagesAPIViewSet
+
+
+class WagtailAPIRouter(BaseWagtailAPIRouter):
+    pass
+
 
 router = WagtailAPIRouter('wagtail')
 
