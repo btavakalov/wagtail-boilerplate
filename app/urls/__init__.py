@@ -9,8 +9,12 @@ from django.urls import path
 
 from search import views as search_views
 
+api = [
+    path('v1/', include('app.urls.v1')),
+]
+
 urlpatterns = [
-    path('api/v1/', include('app.urls.v1')),
+    path('api/', include((api, 'app'), namespace='v1')),
     path('django-admin/', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
 

@@ -4,6 +4,7 @@ Features:
 
 - Custom user model
 - JWT auth
+- Registration
 - django-split-settings
 - django-environ
 - Django REST Framework
@@ -12,7 +13,6 @@ Features:
 - Sentry
 
 TODO:
-- Minimalistic registration
 - I18n
 
 

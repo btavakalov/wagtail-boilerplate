@@ -16,7 +16,7 @@ schema_view = get_schema_view(
     ),
     public=True,
     patterns=[
-        url(r'^api/v1/', include('app.urls.v1')),
+        url(r'^api/v1/', include(('app.urls.v1', 'app'), namespace='v1')),
     ],
     permission_classes=(permissions.IsAuthenticatedOrReadOnly,),
 )
@@ -29,6 +29,7 @@ urlpatterns = [
 
     path('users/', include('users.urls')),
 
-    path('docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path('swagger<str:format>', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('swagger<str:format>', schema_view.without_ui(cache_timeout=0), name='schema-swagger'),
 ]

@@ -1,4 +1,5 @@
 from djangorestframework_camel_case.render import CamelCaseBrowsableAPIRenderer
+from drf_yasg.utils import swagger_auto_schema
 from wagtail.api.v2.views import PagesAPIViewSet as BasePagesAPIViewSet
 from wagtail.core.models import Site
 from wagtail.documents.api.v2.views import DocumentsAPIViewSet as BaseDocumentsAPIViewSet
@@ -11,20 +12,38 @@ from django.utils import translation
 from app.api.renderers import AppJSONRenderer
 
 
-class CamelCasedWagtailViewSet:
+class DefaultWagtailViewSet:
     renderer_classes = [AppJSONRenderer, CamelCaseBrowsableAPIRenderer]
 
 
-class PagesAPIViewSet(CamelCasedWagtailViewSet, BasePagesAPIViewSet):
-    pass
+class PagesAPIViewSet(DefaultWagtailViewSet, BasePagesAPIViewSet):
+    @swagger_auto_schema(tags=['pages'])
+    def listing_view(self, request):
+        return super().listing_view(request)
+
+    @swagger_auto_schema(tags=['pages'])
+    def detail_view(self, request, pk):
+        return super().detail_view(request, pk)
 
 
-class DocumentsAPIViewSet(CamelCasedWagtailViewSet, BaseDocumentsAPIViewSet):
-    pass
+class DocumentsAPIViewSet(DefaultWagtailViewSet, BaseDocumentsAPIViewSet):
+    @swagger_auto_schema(tags=['documents'])
+    def listing_view(self, request):
+        return super().listing_view(request)
+
+    @swagger_auto_schema(tags=['documents'])
+    def detail_view(self, request, pk):
+        return super().detail_view(request, pk)
 
 
-class ImagesAPIViewSet(CamelCasedWagtailViewSet, BaseImagesAPIViewSet):
-    pass
+class ImagesAPIViewSet(DefaultWagtailViewSet, BaseImagesAPIViewSet):
+    @swagger_auto_schema(tags=['images'])
+    def listing_view(self, request):
+        return super().listing_view(request)
+
+    @swagger_auto_schema(tags=['images'])
+    def detail_view(self, request, pk):
+        return super().detail_view(request, pk)
 
 
 class I18nPagesAPIViewSet(PagesAPIViewSet):
