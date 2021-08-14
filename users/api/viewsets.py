@@ -14,6 +14,6 @@ class UserViewSet(DefaultModelViewSet):
         'partial_update': serializers.UserUpdateSerializer,
     }
     permission_classes = (
-        permissions.UserPermission,
+        permissions.IsSuperuserOrReadOnly,
     )
     filterset_class = filtersets.UserFilterSet

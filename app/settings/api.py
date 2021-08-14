@@ -1,6 +1,3 @@
-from drf_yasg.inspectors.view import SwaggerAutoSchema
-from inflection import camelize
-
 from app.settings import env
 
 DISABLE_THROTTLING = env('DISABLE_THROTTLING', cast=bool, default=False)
@@ -41,15 +38,9 @@ REST_FRAMEWORK = {
     },
 }
 
-
-class CamelCaseOperationIDAutoSchema(SwaggerAutoSchema):
-    def get_operation_id(self, operation_keys=None):
-        operation_id = super(CamelCaseOperationIDAutoSchema, self).get_operation_id(operation_keys)
-        return camelize(operation_id, uppercase_first_letter=False)
-
-
 SWAGGER_SETTINGS = {
-    # 'DEFAULT_AUTO_SCHEMA_CLASS': 'app.settings.CamelCaseOperationIDAutoSchema',
+    # 'DEFAULT_AUTO_SCHEMA_CLASS': 'app.api.schema.CamelCaseOperationIDAutoSchema',
+    'REFETCH_SCHEMA_WITH_AUTH': True,
     'TAGS_SORTER': None,
     'OPERATIONS_SORTER': 'alpha',
     'SECURITY_DEFINITIONS': {

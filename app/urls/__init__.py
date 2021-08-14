@@ -14,7 +14,7 @@ api = [
 ]
 
 urlpatterns = [
-    path('api/', include((api, 'app'), namespace='v1')),
+    path('api/', include(api)),
     path('django-admin/', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
 
