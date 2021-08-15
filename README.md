@@ -4,12 +4,12 @@ Features:
 
 - Custom user model
 - JWT auth
-- Registration
+- dj-rest-auth
 - django-split-settings
 - django-environ
 - Django REST Framework
 - Django REST Framework JSON CamelCase
-- Swagger generator
+- Schema generator (drf-spectacular)
 - Sentry
 
 TODO:

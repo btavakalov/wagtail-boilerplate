@@ -1,19 +1,21 @@
 from app.api.viewsets import DefaultModelViewSet
-from users.api import filtersets
-from users.api import permissions
-from users.api import serializers
+from users.api.filtersets import UserFilterSet
+from users.api.permissions import UserPermission
+from users.api.serializers import UserCreateSerializer
+from users.api.serializers import UserSerializer
+from users.api.serializers import UserUpdateSerializer
 from users.models import User
 
 
 class UserViewSet(DefaultModelViewSet):
     queryset = User.objects.all()
-    serializer_class = serializers.UserSerializer
+    serializer_class = UserSerializer
     serializer_action_classes = {
-        'create': serializers.UserCreateSerializer,
-        'update': serializers.UserUpdateSerializer,
-        'partial_update': serializers.UserUpdateSerializer,
+        'create': UserCreateSerializer,
+        'update': UserUpdateSerializer,
+        'partial_update': UserUpdateSerializer,
     }
     permission_classes = (
-        permissions.IsSuperuserOrReadOnly,
+        UserPermission,
     )
-    filterset_class = filtersets.UserFilterSet
+    filterset_class = UserFilterSet

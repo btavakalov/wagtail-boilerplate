@@ -3,6 +3,8 @@ from app.settings import env
 DISABLE_THROTTLING = env('DISABLE_THROTTLING', cast=bool, default=False)
 MAX_PAGE_SIZE = env('MAX_PAGE_SIZE', cast=int, default=1000)
 
+REST_USE_JWT = True
+
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 
