@@ -18,7 +18,7 @@ ROOT_URLCONF = 'app.urls'
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-BASE_URL = 'http://example.com'
+BASE_URL = env('BASE_URL', default='http://localhost:8000')
 
 """
 SITE_ID = 1

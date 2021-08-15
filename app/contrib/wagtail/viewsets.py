@@ -10,6 +10,7 @@ from django.http import Http404
 from django.utils import translation
 
 from app.api.renderers import AppJSONRenderer
+from app.contrib.wagtail.serializer import CustomPageSerializer
 
 
 class DefaultWagtailViewSet:
@@ -17,6 +18,8 @@ class DefaultWagtailViewSet:
 
 
 class PagesAPIViewSet(DefaultWagtailViewSet, BasePagesAPIViewSet):
+    base_serializer_class = CustomPageSerializer
+
     @extend_schema(
         operation_id='pages_list',
     )
