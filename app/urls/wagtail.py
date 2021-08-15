@@ -3,9 +3,9 @@ from wagtail.api.v2.router import WagtailAPIRouter
 from django.urls import include
 from django.urls import path
 
-from app.api.wagtail import DocumentsAPIViewSet
-from app.api.wagtail import ImagesAPIViewSet
-from app.api.wagtail import PagesAPIViewSet
+from app.contrib.wagtail.viewsets import DocumentsAPIViewSet
+from app.contrib.wagtail.viewsets import ImagesAPIViewSet
+from app.contrib.wagtail.viewsets import PagesAPIViewSet
 
 api_version = 'v1'
 app_name = 'wagtailapi'
