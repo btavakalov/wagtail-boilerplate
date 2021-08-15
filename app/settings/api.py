@@ -4,6 +4,8 @@ DISABLE_THROTTLING = env('DISABLE_THROTTLING', cast=bool, default=False)
 MAX_PAGE_SIZE = env('MAX_PAGE_SIZE', cast=int, default=1000)
 
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
     ],
@@ -38,19 +40,13 @@ REST_FRAMEWORK = {
     },
 }
 
-SWAGGER_SETTINGS = {
-    # 'DEFAULT_AUTO_SCHEMA_CLASS': 'app.api.schema.CamelCaseOperationIDAutoSchema',
-    'REFETCH_SCHEMA_WITH_AUTH': True,
-    'TAGS_SORTER': None,
-    'OPERATIONS_SORTER': 'alpha',
-    'SECURITY_DEFINITIONS': {
-        'JWT': {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'Authorization',
-            'description': '---',
-        },
-    },
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Wagtail Project API',
+    'SCHEMA_PATH_PREFIX': '/api/v[0-9]',
+    'SCHEMA_PATH_PREFIX_TRIM': True,
+    'VERSION': '1.0.0',
+    'SERVE_PUBLIC': True,
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 if env('DEBUG'):

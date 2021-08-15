@@ -1,5 +1,5 @@
 from djangorestframework_camel_case.render import CamelCaseBrowsableAPIRenderer
-from drf_yasg.utils import swagger_auto_schema
+from drf_spectacular.utils import extend_schema
 from wagtail.api.v2.views import PagesAPIViewSet as BasePagesAPIViewSet
 from wagtail.core.models import Site
 from wagtail.documents.api.v2.views import DocumentsAPIViewSet as BaseDocumentsAPIViewSet
@@ -17,31 +17,43 @@ class DefaultWagtailViewSet:
 
 
 class PagesAPIViewSet(DefaultWagtailViewSet, BasePagesAPIViewSet):
-    @swagger_auto_schema(tags=['pages'])
+    @extend_schema(
+        operation_id='pages_list',
+    )
     def listing_view(self, request):
         return super().listing_view(request)
 
-    @swagger_auto_schema(tags=['pages'])
+    @extend_schema(
+        operation_id='pages_retrieve',
+    )
     def detail_view(self, request, pk):
         return super().detail_view(request, pk)
 
 
 class DocumentsAPIViewSet(DefaultWagtailViewSet, BaseDocumentsAPIViewSet):
-    @swagger_auto_schema(tags=['documents'])
+    @extend_schema(
+        operation_id='documents_list',
+    )
     def listing_view(self, request):
         return super().listing_view(request)
 
-    @swagger_auto_schema(tags=['documents'])
+    @extend_schema(
+        operation_id='documents_retrieve',
+    )
     def detail_view(self, request, pk):
         return super().detail_view(request, pk)
 
 
 class ImagesAPIViewSet(DefaultWagtailViewSet, BaseImagesAPIViewSet):
-    @swagger_auto_schema(tags=['images'])
+    @extend_schema(
+        operation_id='images_list',
+    )
     def listing_view(self, request):
         return super().listing_view(request)
 
-    @swagger_auto_schema(tags=['images'])
+    @extend_schema(
+        operation_id='images_retrieve',
+    )
     def detail_view(self, request, pk):
         return super().detail_view(request, pk)
 
