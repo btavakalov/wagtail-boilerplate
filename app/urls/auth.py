@@ -1,3 +1,6 @@
+from dj_rest_auth.registration.views import RegisterView
+from dj_rest_auth.registration.views import ResendEmailVerificationView
+from dj_rest_auth.registration.views import VerifyEmailView
 from dj_rest_auth.views import LogoutView
 from dj_rest_auth.views import PasswordChangeView
 from dj_rest_auth.views import PasswordResetConfirmView
@@ -9,8 +12,17 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from django.urls import include
 from django.urls import path
 
+app_name = 'auth'
+
+registration = [
+    path('', RegisterView.as_view(), name='rest_register'),
+    path('verify-email/', VerifyEmailView.as_view(), name='rest_verify_email'),
+    path('resend-email/', ResendEmailVerificationView.as_view(), name='rest_resend_email'),
+]
+
 urlpatterns = [
     # path('registration/', include('dj_rest_auth.registration.urls')),
+    path('registration/', include(registration)),
 
     path('token/', TokenObtainPairView.as_view(), name='token-obtain'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
