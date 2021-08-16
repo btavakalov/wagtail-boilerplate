@@ -8,7 +8,6 @@ from users.api.viewsets import UserViewSet
 router = SimpleRouter()
 router.register('', UserViewSet)
 
-app_name = 'users'
 urlpatterns = [
     path('', include(router.urls)),
 ]
