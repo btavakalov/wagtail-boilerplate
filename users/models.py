@@ -40,7 +40,6 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser, DefaultModel):
-    username = None
     email = models.EmailField(_('email address'), unique=True)
 
     USERNAME_FIELD = 'email'
@@ -48,8 +47,17 @@ class User(AbstractUser, DefaultModel):
 
     objects = UserManager()  # type: UserManager
 
-    def __str__(self):
-        return self.email
-
     class Meta:
         ordering = ['-id']
+
+    def __str__(self):
+        return self.email or self.username
+
+    def save(self, *args, **kwargs):
+        if self.id:
+            user_prev = User.objects.get(pk=self.id)
+            if user_prev.email == user_prev.username:
+                self.username = self.email
+        else:
+            self.username = self.email
+        super().save(*args, **kwargs)

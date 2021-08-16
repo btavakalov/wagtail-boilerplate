@@ -6,9 +6,12 @@ from dj_rest_auth.views import UserDetailsView
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 
+from django.urls import include
 from django.urls import path
 
 urlpatterns = [
+    # path('registration/', include('dj_rest_auth.registration.urls')),
+
     path('token/', TokenObtainPairView.as_view(), name='token-obtain'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 
