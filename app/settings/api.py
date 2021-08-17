@@ -49,6 +49,12 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_PUBLIC': True,
     'SERVE_INCLUDE_SCHEMA': False,
+    'SERVERS': [
+        {
+            'url': '/api/v1',
+            'description': 'API server',
+        },
+    ],
 }
 
 if env('DEBUG'):

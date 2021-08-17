@@ -1,9 +1,7 @@
 ALLOWED_HOSTS = ['*']
 
-"""
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = [
+CORS_ALLOWED_ORIGINS = [
     'http://localhost',
     'http://localhost:3000',
 ]
-"""

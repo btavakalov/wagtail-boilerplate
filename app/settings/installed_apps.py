@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_filters',
 
+    'corsheaders',
+
     'rest_framework',
     'drf_spectacular',
 

@@ -7,6 +7,7 @@ from wagtail.images.api.v2.views import ImagesAPIViewSet as BaseImagesAPIViewSet
 
 from django.conf import settings
 from django.http import Http404
+from django.urls import path
 from django.utils import translation
 
 from app.api.renderers import AppJSONRenderer
@@ -31,6 +32,16 @@ class PagesAPIViewSet(DefaultWagtailViewSet, BasePagesAPIViewSet):
     )
     def detail_view(self, request, pk):
         return super().detail_view(request, pk)
+
+    @classmethod
+    def get_urlpatterns(cls):
+        return [
+            path('', cls.as_view({'get': 'listing_view'}), name='listing'),
+            path('<int:pk>/', cls.as_view({'get': 'detail_view'}), name='detail'),
+            # https://wagtail.io/blog/wagtail-api-how-customize-detail-url/
+            # path('<slug:slug>/', cls.as_view({'get': 'detail_view'}), name='detail'),
+            path('find/', cls.as_view({'get': 'find_view'}), name='find'),
+        ]
 
 
 class DocumentsAPIViewSet(DefaultWagtailViewSet, BaseDocumentsAPIViewSet):
